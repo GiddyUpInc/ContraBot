@@ -8,9 +8,21 @@ class Audio:
         self.r = sr.Recognizer()
         
     def transcribe_audio_file(self, audio_file: str, text_file: str):
-        """Takes audio file input and returns"""
-        pass
-    
+        """Takes audio file input, transcribes audio and writes to text file"""
+        AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), audio_file)
+        
+        # Read the entire audio file
+        r = sr.Recognizer()
+        with sr.AudioFile(AUDIO_FILE) as source:
+            audio = r.record(source)
+            
+        # Return text as list
+        text = r.recognize_google(audio)
+        
+        # Write text to file
+        with open(text_file, 'w') as f:
+            f.write(text)
+            
     def transcribe_realtime(self):
         """Real time transcription of microphone audio"""
         pass
