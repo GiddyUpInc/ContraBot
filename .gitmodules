@@ -1,0 +1,3 @@
+[submodule "text-contradiction"]
+	path = text-contradiction
+	url = https://github.com/GiddyUpInc/text-contradiction.git

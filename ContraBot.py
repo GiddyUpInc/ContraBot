@@ -1,43 +1,45 @@
+"""
+Description:
+    Main script for running ContraBot - speech processing with contradiction detection.
+"""
 
-import argparse
-import os
+from ContraBot.arg_parser import ArgParser
+from ContraBot.converter import Converter
+from ContraBot.speech_processing import SpeechRecognition
+from ContraBot.utils import get_dir, get_filename, get_extension
 
-from audio.audio import Audio
+def parse_input() -> dict:
+    """Parse user input and exit if no input given"""
+    # Create argparser object and call method to return user input
+    parser = ArgParser()
+    args = parser.parse_args()
 
-def define_and_parse_args():
-    parser = argparse.ArgumentParser()
-    
-    parser.add_argument('-f', "--file", type=str, default = "", help = "Pass audio file to be trascribed to text file.")
-    parser.add_argument('-r', "--real_time", type=bool, default = False, help = "Set to true for real time speech to text and contradiction analysis.")
-    
-    parsed_args = parser.parse_args()
-    
-    return parsed_args
+    # Check if audio is realtime or single/multiple file(s)
+    if args.real_time:
+        print("Processing real-time audio.")
+        return []
+    elif args.input != []:
+        inputs = args.input
+
+        return args
+    else:
+        exit("Must specify audio file(s) or realtime audio.")
+
+def transcribe_audio(audio_files: list):
+    """Transcribe audio for list of audio files"""
+    pass
 
 def main():
-    """Get user inputs"""
-    args = define_and_parse_args()
-    
-    filename: str = args.filename
-    real_time: bool = args.real_time
-    
-    """Check user inputs"""
-    if real_time is True:
-        pass
-    elif os.path.exists(filename) == True:
-        name, ext = filename.split('.')
-        
-        if ext == ".wav":
-            audio = Audio()
-            audio.transcribe_audio_file()
-            
-        elif ext == ".txt":
-            
-        
+    # Call function to parse user input
+    args = parse_input()
+
+
+    if len(args) > 0:
+        """Transcribe audio files specified by user"""
+        transcribe_audio(args)
     else:
-        print("No input provided. Exiting...")
-        
-    """Text Analysis"""
+        """Real time audio (not yet implemented)"""
+        exit()
 
 if __name__ == "__main__":
     main()

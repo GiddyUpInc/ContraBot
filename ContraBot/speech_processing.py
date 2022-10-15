@@ -1,8 +1,14 @@
+"""
+Description:
+    Class implements google speech recognition package
+    to transcribe audio files to text files.
 
-import speech_recognition as sr
+    Will be extended to transcribe real time audio.
+"""
 from os import path
+import speech_recognition as sr
 
-class Audio:
+class SpeechRecognition:
     def __init__(self):
         """Init"""
         self.r = sr.Recognizer()
