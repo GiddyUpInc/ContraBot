@@ -1,0 +1,7 @@
+credentials:
+  Token: "MTA1MDEyNzc5OTIwMzE0Mzg2Mg.Gwg_E4.PKWvXMi7c3nRM31Fse97Iw-cUfQFQnHxX3ambg"
+  AppID: "1050127799203143862"
+  PublicKey: "291aa270e73307217c2747cd3fe0e81fcbd71e4484706bdc1e3c7433724e2e9e"
+  ClientID: "1050127799203143862"
+  BotPermissions: "17216646144"
+  URL: "https://discord.com/api/oauth2/authorize?client_id=1050127799203143862&permissions=539022065216&scope=bot"
