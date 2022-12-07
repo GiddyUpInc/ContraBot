@@ -21,7 +21,7 @@ class SpeechRecognition:
         r = sr.Recognizer()
         with sr.AudioFile(AUDIO_FILE) as source:
             audio = r.record(source)
-            
+        
         # Return text as list
         text = r.recognize_google(audio)
         
